@@ -1,3 +1,5 @@
+# --- Image Converter v2.0 ---
+
 import customtkinter as ctk
 from tkinter import filedialog, messagebox, ttk
 import os
@@ -71,7 +73,7 @@ class App(ctk.CTk):
         self.tree.heading("path", text="File Path")
         self.tree.heading("format", text="Output Format")
         self.tree.heading("settings", text="Settings")
-        self.tree.grid(row=0, column=0, fill="both", padx=5, pady=5, sticky="nsew")
+        self.tree.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
         self.tree.bind("<<TreeviewSelect>>", self.on_file_select)
         self.toggle_settings_controls() # Initially hide all
 
