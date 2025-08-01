@@ -63,7 +63,6 @@ class App(ctk.CTk):
         self.fps_label = ctk.CTkLabel(self.settings_frame, text="FPS (1-60):")
         self.fps_slider = ctk.CTkSlider(self.settings_frame, from_=1, to=60, command=lambda value: self.update_setting("fps", value))
         self.fps_entry = ctk.CTkEntry(self.settings_frame, width=50)
-        self.toggle_settings_controls() # Initially hide all
 
 
         # --- Middle Frame Widgets (inside main_frame) ---
@@ -74,6 +73,7 @@ class App(ctk.CTk):
         self.tree.heading("settings", text="Settings")
         self.tree.grid(row=0, column=0, expand=True, fill="both", padx=5, pady=5, sticky="nsew")
         self.tree.bind("<<TreeviewSelect>>", self.on_file_select)
+        self.toggle_settings_controls() # Initially hide all
 
 
         # --- Bottom Frame Widgets ---
