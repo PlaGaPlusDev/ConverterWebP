@@ -1,7 +1,5 @@
-import argparse
 import os
 from PIL import Image, ImageSequence
-from tqdm import tqdm
 
 def convert_image(input_path, output_dir, output_format):
     try:
@@ -41,42 +39,3 @@ def convert_image(input_path, output_dir, output_format):
         return True, filename
     except Exception as e:
         return False, f"Error converting {filename}: {e}"
-
-def main():
-    parser = argparse.ArgumentParser(description="Convert images from one format to another.")
-
-    parser.add_argument(
-        "input_files",
-        metavar="FILE",
-        type=str,
-        nargs="+",
-        help="One or more input image files."
-    )
-
-    parser.add_argument(
-        "-f", "--format",
-        type=str,
-        required=True,
-        choices=["jpg", "png", "webp", "gif"],
-        help="The output format."
-    )
-
-    parser.add_argument(
-        "-o", "--output-dir",
-        type=str,
-        default=".",
-        help="The output directory for converted files. Defaults to the current directory."
-    )
-
-    args = parser.parse_args()
-
-    if not os.path.exists(args.output_dir):
-        os.makedirs(args.output_dir)
-
-    for input_file in tqdm(args.input_files, desc="Converting images"):
-        success, message = convert_image(input_file, args.output_dir, args.format)
-        if not success:
-            print(message)
-
-if __name__ == "__main__":
-    main()
