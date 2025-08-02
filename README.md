@@ -8,4 +8,4 @@ A new build of my own converter in Python
     5. Manually files input and output folder
     6. Progress-bar for simply view
 # Fix
-    Some bugs in the export gif and animated webP files (wrong FPS)
+    Some bugs in the export gif and animated webP files (wrong FPS) status
