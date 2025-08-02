@@ -1,3 +1,4 @@
+## Please init in gui.py
 # Converter WebP
 A new build of my own converter in Python
 # Feactures
