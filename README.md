@@ -1,7 +1,7 @@
 ## Please init in gui.py
 # Converter WebP
 A new build of my own converter in Python
-# Feactures
+# Features
     1. New friendly UI for understanding the program
     2. Buttons for more export options
     3. Sliders for compresion JPG & PNG files
