@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>Image Converter</h1>
+            <button id="theme-switcher">Switch to Dark Mode</button>
+        </div>
+    </nav>
+
+    <main>
+        <form id="upload-form" action="/convert" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file-input">Select an image to convert:</label>
+                <input type="file" id="file-input" name="image" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="output-format">Output Format:</label>
+                <select id="output-format" name="output_format">
+                    <option value="png">PNG</option>
+                    <option value="jpg">JPG</option>
+                    <option value="webp">WEBP</option>
+                    <option value="gif">GIF</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="compression-group">
+                <label for="compression">Compression (1-100):</label>
+                <input type="range" id="compression" name="compression" min="1" max="100" value="95">
+                <span id="compression-value">95</span>
+            </div>
+
+            <div class="form-group" id="fps-group" style="display: none;">
+                <label for="fps">FPS (1-60):</label>
+                <input type="range" id="fps" name="fps" min="1" max="60" value="24">
+                <span id="fps-value">24</span>
+            </div>
+
+            <button type="submit">Convert</button>
+        </form>
+
+        <div id="result"></div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
